@@ -21,7 +21,9 @@ export default function Home() {
     const sid = Math.random().toString(36).substring(2, 9);
     setSessionId(sid);
     
-    fetch('http://localhost:3001/api/start', {
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+
+    fetch(`${API_BASE}/api/start`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ sessionId: sid })
@@ -40,7 +42,8 @@ export default function Home() {
     
     const interval = setInterval(async () => {
       try {
-        const res = await fetch(`http://localhost:3001/api/${sessionId}`);
+        const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+        const res = await fetch(`${API_BASE}/api/${sessionId}`);
         if (res.ok) {
           const data = await res.json();
           setIsWubbleActive(true);
@@ -61,7 +64,8 @@ export default function Home() {
     setIsLoading(true);
     
     try {
-      const res = await fetch('http://localhost:3001/api/update', {
+      const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      const res = await fetch(`${API_BASE}/api/update`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sessionId, event: eventName })
@@ -82,7 +86,8 @@ export default function Home() {
     setIsLoading(true);
 
     try {
-      const res = await fetch('http://localhost:3001/api/vibe-check', {
+      const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      const res = await fetch(`${API_BASE}/api/vibe-check`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sessionId, url: urlInput })
