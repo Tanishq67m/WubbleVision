@@ -25,7 +25,6 @@ export default function AudioEngine({ trackUrl, crossfadeDuration, globalPlaySta
     const newAudio = new Audio(trackUrl);
     newAudio.loop = true;
     newAudio.volume = 0;
-    newAudio.crossOrigin = "anonymous";
     newAudio.muted = !globalPlayState;
 
     // Crossfade Logic - Instant Play bypasses buffering waits
