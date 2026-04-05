@@ -153,10 +153,10 @@ export async function generateWubbleMusic(prompt: string): Promise<string> {
   await new Promise(r => setTimeout(r, 2000));
   
   // Try to parse the tempo/vibe from the prompt context
-  let fallbackUrl = 'https://actions.google.com/sounds/v1/science_fiction/teleport.ogg'; // default hype
-  if (prompt.includes('warning')) fallbackUrl = 'https://actions.google.com/sounds/v1/alarms/spaceship_alarm.ogg';
-  if (prompt.includes('flow')) fallbackUrl = 'https://actions.google.com/sounds/v1/science_fiction/space_engine.ogg';
-  if (prompt.includes('focus')) fallbackUrl = 'https://actions.google.com/sounds/v1/ambiences/coffee_shop.ogg';
+  let fallbackUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3'; // default hype
+  if (prompt.includes('warning')) fallbackUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3';
+  if (prompt.includes('flow')) fallbackUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3';
+  if (prompt.includes('focus')) fallbackUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
   
   return fallbackUrl;
 }

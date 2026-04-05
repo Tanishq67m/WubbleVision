@@ -50,14 +50,14 @@ export default async function sessionRoutes(fastify: FastifyInstance) {
     // 3. Update State via Redis
     // Map public fallback sounds to states for immediate frontend feedback
     const FallbackAudio: Record<string, string> = {
-      focus: 'https://actions.google.com/sounds/v1/ambiences/coffee_shop.ogg',
-      flow: 'https://actions.google.com/sounds/v1/science_fiction/space_engine.ogg',
-      hype: 'https://actions.google.com/sounds/v1/science_fiction/dark_pad_with_filter_sweep.ogg',
-      warning: 'https://actions.google.com/sounds/v1/alarms/spaceship_alarm.ogg',
-      lofi: 'https://actions.google.com/sounds/v1/water/rain_on_roof.ogg',
-      epic: 'https://actions.google.com/sounds/v1/science_fiction/power_down.ogg',
-      cyberpunk: 'https://actions.google.com/sounds/v1/science_fiction/teleport.ogg',
-      ambient: 'https://actions.google.com/sounds/v1/ambiences/forest_morning.ogg',
+      focus: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+      flow: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+      hype: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
+      warning: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+      lofi: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+      epic: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
+      cyberpunk: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
+      ambient: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
     };
 
     const newState = {
@@ -105,7 +105,7 @@ export default async function sessionRoutes(fastify: FastifyInstance) {
     const transition = MusicTransitions['CHAT_HYPE'];
     const newState = {
       current_vibe: transition.next,
-      track_url: 'https://actions.google.com/sounds/v1/science_fiction/dark_pad_with_filter_sweep.ogg',
+      track_url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
       tempo: transition.tempo,
       color: transition.color,
       crossfade: 2000
